@@ -1,43 +1,59 @@
 <?xml version="1.0"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-  <parent>
-    <groupId>org.sonatype.oss</groupId>
-    <artifactId>oss-parent</artifactId>
-    <version>7</version>
-  </parent>
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>7</version>
+    </parent>
 
-  <groupId>st.redline</groupId>
-  <artifactId>redline</artifactId>
-  <version>0.6-SNAPSHOT</version>
-  <packaging>jar</packaging>
-  
-  <name>Redline Smalltalk</name>
-  <description>Redline Smalltalk is a Smalltalk for the Java Virtual Machine, because nothing is as productive as Smalltalk, and the App has to run on the Java Virtual Machine.</description>
-  <url>http://redline.st</url>
+    <groupId>st.redline</groupId>
+    <artifactId>redline</artifactId>
+    <version>0.6-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
-  <licenses>
-    <license>
-      <name>MIT License</name>
-      <url>http://opensource.org/licenses/MIT</url>
-      <distribution>repo</distribution>
-    </license>
-  </licenses>
+    <name>Redline Smalltalk</name>
+    <description>Redline Smalltalk is a Smalltalk for the Java Virtual Machine, because nothing is as productive as
+        Smalltalk, and the App has to run on the Java Virtual Machine.
+    </description>
+    <url>http://redline.st</url>
 
-  <scm>
-    <url>git@github.com:redline-smalltalk/redline-smalltalk.git</url>
-    <developerConnection>scm:git:git@github.com:redline-smalltalk/redline-smalltalk.git</developerConnection>
-    <connection>scm:git:git@github.com:redline-smalltalk/redline-smalltalk.git</connection>
-  </scm>
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://opensource.org/licenses/MIT</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
 
-  <developers>
-    <developer>
-      <id>jamesladd</id>
-      <name>James Ladd</name>
-      <email>ladd.james@gmail.com</email>
-    </developer>
-  </developers>
+    <scm>
+        <url>git@github.com:TheSecretSquad/stc.git</url>
+        <developerConnection>scm:git:git@github.com:TheSecretSquad/stc.git</developerConnection>
+        <connection>scm:git:git@github.com:TheSecretSquad/stc.git</connection>
+    </scm>
+
+    <developers>
+        <developer>
+            <id>jamesladd</id>
+            <name>James Ladd</name>
+            <email>ladd.james@gmail.com</email>
+        </developer>
+    </developers>
+
+    <distributionManagement>
+        <repository>
+            <id>test-server-release</id>
+            <name>Test Nexus Release Repository</name>
+            <url>http://192.168.198.131:8081/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>test-server-snapshots</id>
+            <name>Test Sonatype Nexus Snapshots</name>
+            <url>http://192.168.198.131:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -52,30 +68,31 @@
         <common-logging-version>1.2</common-logging-version>
         <log4j-version>1.2.17</log4j-version>
         <asm-all-version>5.1</asm-all-version>
+        <maven-release-plugin-version>2.5.3</maven-release-plugin-version>
     </properties>
 
-  <dependencies>
-    <dependency>
-      <groupId>org.antlr</groupId>
-      <artifactId>antlr4-maven-plugin</artifactId>
-      <version>${antlr4-version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.ow2.asm</groupId>
-      <artifactId>asm-all</artifactId>
-      <version>${asm-all-version}</version>
-    </dependency>
-    <dependency>
-        <groupId>commons-logging</groupId>
-        <artifactId>commons-logging</artifactId>
-        <version>${common-logging-version}</version>
-    </dependency>
-    <dependency>
-        <groupId>log4j</groupId>
-        <artifactId>log4j</artifactId>
-        <version>${log4j-version}</version>
-    </dependency>
-  </dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>org.antlr</groupId>
+            <artifactId>antlr4-maven-plugin</artifactId>
+            <version>${antlr4-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ow2.asm</groupId>
+            <artifactId>asm-all</artifactId>
+            <version>${asm-all-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>${common-logging-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${log4j-version}</version>
+        </dependency>
+    </dependencies>
 
     <build>
         <resources>
@@ -165,7 +182,8 @@
                                 </excludes>
                             </artifactSet>
                             <transformers>
-                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                <transformer
+                                        implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                                     <!-- Main class -->
                                     <mainClass>st.redline.Stic</mainClass>
                                 </transformer>
@@ -173,6 +191,16 @@
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>${maven-release-plugin-version}</version>
+<!--                <configuration>
+                    <checkModificationExcludes>
+                        <checkModificationExclude>pom.xml</checkModificationExclude>
+                    </checkModificationExcludes>
+                </configuration>-->
             </plugin>
         </plugins>
     </build>
