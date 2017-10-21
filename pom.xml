@@ -29,9 +29,9 @@
     </licenses>
 
     <scm>
-        <url>git@github.com:TheSecretSquad/stc.git</url>
-        <developerConnection>scm:git:git@github.com:TheSecretSquad/stc.git</developerConnection>
-        <connection>scm:git:git@github.com:TheSecretSquad/stc.git</connection>
+        <url>https://github.com/TheSecretSquad/stc</url>
+        <developerConnection>scm:git:https://github.com/TheSecretSquad/stc.git</developerConnection>
+        <connection>scm:git:https://github.com/TheSecretSquad/stc.git</connection>
     </scm>
 
     <developers>
