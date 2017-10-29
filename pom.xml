@@ -1,13 +1,12 @@
 <?xml version="1.0"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <!-- TODO: Add maven-versions-plugin for configuring releases -->
     <!-- TODO: Finish configuring gpg signing (passphrase gpg-agent) -->
     <!-- TODO: Create release profile (only do signing, javadoc, and sources during release) -->
     <groupId>st.redline</groupId>
     <artifactId>redline</artifactId>
-    <version>0.8-SNAPSHOT</version>
+    <version>1.0</version>
     <packaging>jar</packaging>
 
     <name>Redline Smalltalk</name>
@@ -28,7 +27,7 @@
         <url>https://github.com/TheSecretSquad/stc</url>
         <developerConnection>scm:git:https://github.com/TheSecretSquad/stc.git</developerConnection>
         <connection>scm:git:https://github.com/TheSecretSquad/stc.git</connection>
-        <tag>HEAD</tag>
+        <tag>redline-1.0</tag>
     </scm>
 
     <developers>
@@ -69,6 +68,7 @@
         <maven-source-plugin-version>3.0.1</maven-source-plugin-version>
         <maven-javadoc-plugin-version>3.0.0-M1</maven-javadoc-plugin-version>
         <maven-gpg-plugin-version>1.6</maven-gpg-plugin-version>
+        <maven-release-plugin-version>2.5.3</maven-release-plugin-version>
     </properties>
 
     <dependencies>
@@ -242,6 +242,20 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>${maven-release-plugin-version}</version>
+                <configuration>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                    <useReleaseProfile>false</useReleaseProfile>
+                    <releaseProfiles>release</releaseProfiles>
+                    <goals>deploy</goals>
+                    <checkModificationExcludes> <!-- TODO: remove -->
+                        <checkModificationExclude>pom.xml</checkModificationExclude>
+                    </checkModificationExcludes>
+                </configuration>
             </plugin>
         </plugins>
     </build>
