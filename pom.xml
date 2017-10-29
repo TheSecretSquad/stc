@@ -6,7 +6,7 @@
     <!-- TODO: Create release profile (only do signing, javadoc, and sources during release) -->
     <groupId>st.redline</groupId>
     <artifactId>redline</artifactId>
-    <version>3.2-SNAPSHOT</version>
+    <version>3.2</version>
     <packaging>jar</packaging>
 
     <name>Redline Smalltalk</name>
@@ -27,7 +27,7 @@
         <url>https://github.com/TheSecretSquad/stc</url>
         <developerConnection>scm:git:https://github.com/TheSecretSquad/stc.git</developerConnection>
         <connection>scm:git:https://github.com/TheSecretSquad/stc.git</connection>
-    <tag>HEAD</tag>
+    <tag>redline-3.2</tag>
   </scm>
 
     <developers>
@@ -42,12 +42,12 @@
 <!--        <repository>
             <id>ossrh</id>
             <name>Test Nexus Release Repository</name>
-            <url>http://192.168.198.131:8081/repository/maven-releases/</url>
+            <url>http://localhost:8081/repository/maven-releases/</url>
         </repository>-->
         <snapshotRepository>
             <id>ossrh</id>
             <name>Test Sonatype Nexus Snapshots</name>
-            <url>http://192.168.198.131:8081/repository/maven-snapshots/</url>
+            <url>http://localhost:8081/repository/maven-snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
 
