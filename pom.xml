@@ -6,7 +6,7 @@
     <!-- TODO: Create release profile (only do signing, javadoc, and sources during release) -->
     <groupId>st.redline</groupId>
     <artifactId>redline</artifactId>
-    <version>3.3</version>
+    <version>3.4-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>Redline Smalltalk</name>
@@ -27,7 +27,7 @@
         <url>https://github.com/TheSecretSquad/stc</url>
         <developerConnection>scm:git:https://github.com/TheSecretSquad/stc.git</developerConnection>
         <connection>scm:git:https://github.com/TheSecretSquad/stc.git</connection>
-      <tag>redline-3.3</tag>
+      <tag>HEAD</tag>
   </scm>
 
     <developers>
