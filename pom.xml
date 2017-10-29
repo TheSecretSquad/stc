@@ -1,9 +1,6 @@
 <?xml version="1.0"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <!-- TODO: Add maven-versions-plugin for configuring releases -->
-    <!-- TODO: Finish configuring gpg signing (passphrase gpg-agent) -->
-    <!-- TODO: Create release profile (only do signing, javadoc, and sources during release) -->
     <groupId>st.redline</groupId>
     <artifactId>redline</artifactId>
     <version>3.5-SNAPSHOT</version>
@@ -24,9 +21,6 @@
     </licenses>
 
     <scm>
-<!--        <url>https://github.com/TheSecretSquad/stc</url>
-        <developerConnection>scm:git:https://github.com/TheSecretSquad/stc.git</developerConnection>
-        <connection>scm:git:https://github.com/TheSecretSquad/stc.git</connection>-->
         <url>https://github.com/TheSecretSquad/stc</url>
         <developerConnection>scm:git:git@github.com:TheSecretSquad/stc.git</developerConnection>
         <connection>scm:git:git@github.com:TheSecretSquad/stc.git</connection>
@@ -106,18 +100,18 @@
             </activation>
             <build>
                 <plugins>
-<!--                    <plugin>
+                    <plugin>
                         <groupId>org.sonatype.plugins</groupId>
                         <artifactId>nexus-staging-maven-plugin</artifactId>
                         <version>${nexus-staging-maven-plugin-version}</version>
                         <extensions>true</extensions>
                         <configuration>
                             <serverId>ossrh</serverId>
-                            &lt;!&ndash;<nexusUrl>https://oss.sonatype.org/</nexusUrl>&ndash;&gt;
+                            <!--<nexusUrl>https://oss.sonatype.org/</nexusUrl>-->
                             <nexusUrl>http://192.168.198.131:8081/</nexusUrl>
                             <autoReleaseAfterClose>true</autoReleaseAfterClose>
                         </configuration>
-                    </plugin>-->
+                    </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-source-plugin</artifactId>
@@ -266,12 +260,10 @@
                 <version>${maven-release-plugin-version}</version>
                 <configuration>
                     <autoVersionSubmodules>true</autoVersionSubmodules>
+                    <!-- See http://central.sonatype.org/pages/apache-maven.html#performing-a-release-deployment-with-the-maven-release-plugin -->
                     <useReleaseProfile>false</useReleaseProfile>
                     <releaseProfiles>release</releaseProfiles>
                     <goals>deploy</goals>
-                    <checkModificationExcludes> <!-- TODO: remove -->
-                        <checkModificationExclude>pom.xml</checkModificationExclude>
-                    </checkModificationExcludes>
                 </configuration>
             </plugin>
         </plugins>
