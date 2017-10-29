@@ -6,7 +6,7 @@
     <!-- TODO: Create release profile (only do signing, javadoc, and sources during release) -->
     <groupId>st.redline</groupId>
     <artifactId>redline</artifactId>
-    <version>3.4-SNAPSHOT</version>
+    <version>3.4</version>
     <packaging>jar</packaging>
 
     <name>Redline Smalltalk</name>
@@ -25,9 +25,9 @@
 
     <scm>
         <url>https://github.com/TheSecretSquad/stc</url>
-        <developerConnection>scm:git:https://github.com/TheSecretSquad/stc.git</developerConnection>
-        <connection>scm:git:https://github.com/TheSecretSquad/stc.git</connection>
-      <tag>HEAD</tag>
+        <developerConnection>scm:git:git://github.com/TheSecretSquad/stc.git</developerConnection>
+        <connection>scm:git:git://github.com/TheSecretSquad/stc.git</connection>
+    <tag>redline-3.4</tag>
   </scm>
 
     <developers>
@@ -103,18 +103,18 @@
             </activation>
             <build>
                 <plugins>
-                    <plugin>
+<!--                    <plugin>
                         <groupId>org.sonatype.plugins</groupId>
                         <artifactId>nexus-staging-maven-plugin</artifactId>
                         <version>${nexus-staging-maven-plugin-version}</version>
                         <extensions>true</extensions>
                         <configuration>
                             <serverId>ossrh</serverId>
-                            <!--<nexusUrl>https://oss.sonatype.org/</nexusUrl>-->
+                            &lt;!&ndash;<nexusUrl>https://oss.sonatype.org/</nexusUrl>&ndash;&gt;
                             <nexusUrl>http://192.168.198.131:8081/</nexusUrl>
                             <autoReleaseAfterClose>true</autoReleaseAfterClose>
                         </configuration>
-                    </plugin>
+                    </plugin>-->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-source-plugin</artifactId>
