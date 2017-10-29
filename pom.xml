@@ -1,17 +1,14 @@
 <?xml version="1.0"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <!-- TODO: Cleanup settings.xml and provide settings configuration to James -->
-    <!-- TODO: Provide gpg key generation instructions to James, see http://central.sonatype.org/pages/working-with-pgp-signatures.html -->
-    <!-- TODO: Make snapshot deploy and release deploy instructions -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>st.redline</groupId>
     <artifactId>redline</artifactId>
-    <version>3.5-SNAPSHOT</version> <!-- TODO: Reset SNAPSHOT version -->
+    <version>0.6-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>Redline Smalltalk</name>
-    <description>Redline Smalltalk is a Smalltalk for the Java Virtual Machine, because nothing is as productive as
-        Smalltalk, and the App has to run on the Java Virtual Machine.
+    <description>Redline Smalltalk is a Smalltalk for the Java Virtual Machine, because nothing is as productive as Smalltalk, and the App has to run on the Java Virtual Machine.
     </description>
     <url>http://redline.st</url>
 
@@ -24,12 +21,10 @@
     </licenses>
 
     <scm>
-        <!-- TODO: Reset scm values -->
-        <url>https://github.com/TheSecretSquad/stc</url>
-        <developerConnection>scm:git:git@github.com:TheSecretSquad/stc.git</developerConnection>
-        <connection>scm:git:git@github.com:TheSecretSquad/stc.git</connection>
-    <tag>HEAD</tag>
-  </scm>
+        <url>https://github.com/redline-smalltalk/redline-smalltalk</url>
+        <developerConnection>scm:git:git@github.com:redline-smalltalk/redline-smalltalk.git</developerConnection>
+        <connection>scm:git:git@github.com:redline-smalltalk/redline-smalltalk.git</connection>
+    </scm>
 
     <developers>
         <developer>
@@ -40,16 +35,11 @@
     </developers>
 
     <distributionManagement>
-        <!-- TODO: Set correct repo urls -->
-        <repository>
-            <id>ossrh</id>
-            <name>Test Nexus Release Repository</name>
-            <url>http://192.168.198.131:8081/repository/maven-releases/</url>
-        </repository>
+        <!-- Release repository is configured in the nexus-staging-maven-plugin -->
         <snapshotRepository>
             <id>ossrh</id>
             <name>Test Sonatype Nexus Snapshots</name>
-            <url>http://192.168.198.131:8081/repository/maven-snapshots/</url>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </snapshotRepository>
     </distributionManagement>
 
@@ -105,19 +95,6 @@
             </activation>
             <build>
                 <plugins>
-                    <plugin>
-                        <groupId>org.sonatype.plugins</groupId>
-                        <artifactId>nexus-staging-maven-plugin</artifactId>
-                        <version>${nexus-staging-maven-plugin-version}</version>
-                        <extensions>true</extensions>
-                        <configuration>
-                            <serverId>ossrh</serverId>
-                            <!-- TODO: Set correct nexus url -->
-                            <!--<nexusUrl>https://oss.sonatype.org/</nexusUrl>-->
-                            <nexusUrl>http://192.168.198.131:8081/</nexusUrl>
-                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                        </configuration>
-                    </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-source-plugin</artifactId>
@@ -261,12 +238,23 @@
                 </executions>
             </plugin>
             <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>${nexus-staging-maven-plugin-version}</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
                 <version>${maven-release-plugin-version}</version>
                 <configuration>
-                    <autoVersionSubmodules>true</autoVersionSubmodules>
                     <!-- See http://central.sonatype.org/pages/apache-maven.html#performing-a-release-deployment-with-the-maven-release-plugin -->
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
                     <useReleaseProfile>false</useReleaseProfile>
                     <releaseProfiles>release</releaseProfiles>
                     <goals>deploy</goals>
