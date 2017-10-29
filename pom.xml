@@ -6,7 +6,7 @@
     <!-- TODO: Create release profile (only do signing, javadoc, and sources during release) -->
     <groupId>st.redline</groupId>
     <artifactId>redline</artifactId>
-    <version>3.0</version>
+    <version>3.1</version>
     <packaging>jar</packaging>
 
     <name>Redline Smalltalk</name>
@@ -27,7 +27,7 @@
         <url>https://github.com/TheSecretSquad/stc</url>
         <developerConnection>scm:git:https://github.com/TheSecretSquad/stc.git</developerConnection>
         <connection>scm:git:https://github.com/TheSecretSquad/stc.git</connection>
-    <tag>redline-3.0</tag>
+    <tag>redline-3.1</tag>
   </scm>
 
     <developers>
@@ -69,6 +69,7 @@
         <maven-javadoc-plugin-version>3.0.0-M1</maven-javadoc-plugin-version>
         <maven-gpg-plugin-version>1.6</maven-gpg-plugin-version>
         <maven-release-plugin-version>2.5.3</maven-release-plugin-version>
+        <project.scm.id>github</project.scm.id>
     </properties>
 
     <dependencies>
