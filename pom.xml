@@ -1,9 +1,12 @@
 <?xml version="1.0"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <!-- TODO: Cleanup settings.xml and provide settings configuration to James -->
+    <!-- TODO: Provide gpg key generation instructions to James, see http://central.sonatype.org/pages/working-with-pgp-signatures.html -->
+    <!-- TODO: Make snapshot deploy and release deploy instructions -->
     <modelVersion>4.0.0</modelVersion>
     <groupId>st.redline</groupId>
     <artifactId>redline</artifactId>
-    <version>3.5-SNAPSHOT</version>
+    <version>3.5-SNAPSHOT</version> <!-- TODO: Reset SNAPSHOT version -->
     <packaging>jar</packaging>
 
     <name>Redline Smalltalk</name>
@@ -21,6 +24,7 @@
     </licenses>
 
     <scm>
+        <!-- TODO: Reset scm values -->
         <url>https://github.com/TheSecretSquad/stc</url>
         <developerConnection>scm:git:git@github.com:TheSecretSquad/stc.git</developerConnection>
         <connection>scm:git:git@github.com:TheSecretSquad/stc.git</connection>
@@ -36,6 +40,7 @@
     </developers>
 
     <distributionManagement>
+        <!-- TODO: Set correct repo urls -->
         <repository>
             <id>ossrh</id>
             <name>Test Nexus Release Repository</name>
@@ -107,6 +112,7 @@
                         <extensions>true</extensions>
                         <configuration>
                             <serverId>ossrh</serverId>
+                            <!-- TODO: Set correct nexus url -->
                             <!--<nexusUrl>https://oss.sonatype.org/</nexusUrl>-->
                             <nexusUrl>http://192.168.198.131:8081/</nexusUrl>
                             <autoReleaseAfterClose>true</autoReleaseAfterClose>
